@@ -1,8 +1,9 @@
 $(function() {
     $('.toSwipe').on("swipeup", SwipeUp);
     $('.toSwipe').on("swipedown", SwipeDown);
-    ToLoad('dossiers');
+    ToLoad('dossiers'); // Charge la page des listes
 });
+
 
 function SwipeLeft() {
 
@@ -20,17 +21,20 @@ function SwipeRight() {
     $('#del_'+this.id).addClass('hide');
 };
 
+// Masque de formulaire d'ajout de liste ou d'item
 function SwipeUp() {
 
     $('.container-input').css('top', '-100px') ;
 };
 
+// Affiche le formulaire d'ajout de liste ou d'item
 function SwipeDown() {
 
     $('.container-input').css('top', '50px') ;
     $('#input').focus();
 };
 
+// Fonction pour charger les pages
 function ToLoad(page) {
 
     $('#content').load(page+'.html');
@@ -41,6 +45,7 @@ function TheTime() {
     return Math.floor(Date.now() / 1000) ;
 };
 
+// Création d'une liste
 function nouvelleListe() {
 
     localStorage.setItem('dossier-'+TheTime(), $('#input').val());
@@ -50,6 +55,7 @@ function nouvelleListe() {
     SwipeUp() ;
 };
 
+// Création d'un item dans une liste
 function nouvelItem() {
 
     dossier = JSON.parse(localStorage.getItem('refDossier'));
@@ -66,6 +72,7 @@ function nouvelItem() {
     SwipeUp() ;
 };
 
+// Selection d'une liste
 function selectDossier(id, name){
 
     dossier = {
@@ -106,7 +113,7 @@ function listeDossiers() {
 
     if (total === 0) {
 
-        $('#listeDossiers').append("<a href='#' class='list-group-item'>Liste vide</a>") ;
+        $('#listeDossiers').append("<a href='#' class='list-group-item'>Aucune liste</a>") ;
     }
 };
 
@@ -185,12 +192,7 @@ function changeClass(id) {
     ToLoad('items');
 };
 
-function ClearAll() {
-
-    localStorage.clear();
-    ToLoad('dossiers');
-};
-
+// Supprime une liste et tous les items qu'elle contient
 function ClearOneListe(liste){
 
     localStorage.removeItem(liste);
