@@ -1,5 +1,4 @@
 $(function() {
-    $('[data-toggle="tooltip"]').tooltip()
     $('.toSwipe').on("swipeup", SwipeUp);
     $('.toSwipe').on("swipedown", SwipeDown);
     ToLoad('dossiers');
