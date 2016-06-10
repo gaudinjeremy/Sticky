@@ -40,6 +40,7 @@ function ToLoad(page) {
     $('#content').load(page+'.html');
 };
 
+// retourne le timestamp actuel
 function TheTime() {
 
     return Math.floor(Date.now() / 1000) ;
