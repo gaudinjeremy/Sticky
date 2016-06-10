@@ -10,7 +10,6 @@ body {
     position : absolute;
     top : -100px ;
     width: 100%;
-    /*height : 100px; */
     background-color: #222222;
     transition : linear ;
     transition-delay : 0s ;
