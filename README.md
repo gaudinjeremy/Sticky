@@ -1,2 +1,2 @@
 # Sticky
-Un toDo-list avec du localStorage
+Un todo-list avec localStorage / jQuery / Bootstrap
